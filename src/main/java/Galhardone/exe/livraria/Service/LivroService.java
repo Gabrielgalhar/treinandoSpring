@@ -2,6 +2,7 @@ package Galhardone.exe.livraria.Service;
 
 import Galhardone.exe.livraria.entity.Livro;
 import Galhardone.exe.livraria.repository.LivroRepository;
+import org.jspecify.annotations.Nullable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,8 +16,8 @@ public class LivroService {
     private LivroRepository repository;
 
 
-    public void creat(Livro obj){
-        repository.save(obj);
+    public Livro creat(Livro obj){
+        return (Livro) repository.save(obj);
 
     }
 
@@ -39,4 +40,6 @@ public class LivroService {
     private void UpdateLivro(Optional<Livro> newObj, Livro obj) {
         newObj.get().setNome(obj.getNome());
     }
+
+
 }
